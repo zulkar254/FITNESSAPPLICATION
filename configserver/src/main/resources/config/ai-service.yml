@@ -1,8 +1,14 @@
 spring:
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/fitnessrecommendation
-      database: fitnessrecommendation
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username:  system
+    password:  Zulkar@123
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.OracleDialect
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -28,6 +34,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+      
 
 server:
   port: 8083
