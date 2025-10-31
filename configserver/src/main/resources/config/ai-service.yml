@@ -1,14 +1,16 @@
-spring:
-  datasource:
-    url: jdbc:oracle:thin:@localhost:1521:orcl
-    username:  system
-    password:  Zulkar@123
-    driver-class-name: oracle.jdbc.OracleDriver
+server:
+  port: 8083
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.OracleDialect
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/fitnessrecommendation
+      database: fitnessrecommendation
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -35,6 +37,3 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
       
-
-server:
-  port: 8083

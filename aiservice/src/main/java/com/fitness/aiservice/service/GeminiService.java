@@ -1,4 +1,3 @@
-
 package com.fitness.aiservice.service;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -9,6 +8,7 @@ import java.util.Map;
 
 @Service
 public class GeminiService {
+
     private final WebClient webClient;
 
     @Value("${gemini.api.url}")
@@ -21,19 +21,18 @@ public class GeminiService {
         this.webClient = webClientBuilder.build();
     }
 
-    public String getRecommendations(String details) {
+    public String getAnswer(String question) {
         Map<String, Object> requestBody = Map.of(
                 "contents", new Object[] {
-                        Map.of("parts", new Object[] {
-                                Map.of("text", details)
+                        Map.of("parts", new Object[]{
+                                Map.of("text", question)
                         })
                 }
         );
 
         String response = webClient.post()
-                .uri(geminiApiUrl)
-                .header("Content-Type","application/json")
-                .header("X-goog-api-key", geminiApiKey)
+                .uri(geminiApiUrl + geminiApiKey)
+                .header("Content-Type", "application/json")
                 .bodyValue(requestBody)
                 .retrieve()
                 .bodyToMono(String.class)
