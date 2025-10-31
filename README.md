@@ -13,7 +13,7 @@ It allows users to register, log in, track their fitness activities, and view pe
 | *Database* | Oracle Database |
 | *ORM* | Spring Data JPA / Hibernate |
 | *Security* | Keycloak / JWT |
-| *Frontend* | HTML, CSS, JS / Thymeleaf (optional) |
+| *Frontend* | HTML, CSS, JS / react+vite |
 | *Build Tool* | Maven |
 | *Version Control* | Git & GitHub |
 
